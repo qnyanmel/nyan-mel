@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100b18">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Нян-Mel — поддержка, Telegram-проекты Nitokin, реклама и полезные ссылки. Всё важное в одном месте.">
+  <title>Нян-Mel ✦ Поддержка, ссылки и Telegram-проекты</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231a0e2a'/%3E%3Cpath d='M15 45V18l34 28V19' fill='none' stroke='%23ff72bc' stroke-width='8' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #090811;
+      --surface: #15101f;
+      --surface-2: #1b1328;
+      --line: rgba(255, 255, 255, .115);
+      --text: #fbf5ff;
+      --muted: #b5aabf;
+      --pink: #ff6bb1;
+      --pink-light: #ffacd7;
+      --purple: #aa83ff;
+      --radius: 25px;
+      --container: 1140px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body { margin: 0; min-width: 320px; color: var(--text); font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    a { text-decoration: none; color: inherit; }
+    button:focus-visible, a:focus-visible { outline: 3px solid #ffa9d3; outline-offset: 5px; }
+    ::selection { background: #f678ae; color: #160c1b; }
+    .page { position: relative; isolation: isolate; overflow: hidden; min-height: 100vh; }
+    .page::before { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: -2; background: radial-gradient(ellipse 54% 23% at 81% 2%, rgba(156, 74, 220, .25), transparent 72%), radial-gradient(ellipse 46% 23% at 0% 36%, rgba(250, 73, 162, .095), transparent 75%), radial-gradient(ellipse 45% 26% at 90% 85%, rgba(120, 57, 215, .12), transparent 70%), #090811; }
+    .page::after { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .20; background-image: radial-gradient(#e1caef 0.7px, transparent 0.7px); background-size: 34px 34px; mask-image: linear-gradient(to bottom, #000 0%, transparent 43%, transparent 100%); }
+    .container { width: min(var(--container), calc(100% - 48px)); margin-inline: auto; }
+    .header { position: relative; z-index: 3; padding: 22px 0 18px; }
+    .nav { min-height: 67px; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 10px 16px 10px 13px; border: 1px solid rgba(255,255,255,.10); border-radius: 20px; background: rgba(25, 17, 37, .78); box-shadow: 0 10px 45px rgba(0,0,0,.14); backdrop-filter: blur(16px); }
+    .brand { display: inline-flex; gap: 12px; align-items: center; min-width: 0; }
+    .brand-mark { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 14px; color: #fff; background: linear-gradient(145deg,#ff80c1,#a863e8); box-shadow: inset 0 1px 0 #ffffff60, 0 5px 28px #f16cb53f; font-size: 27px; font-style: italic; font-weight: 950; letter-spacing: -.12em; padding-right: 4px; }
+    .brand-type { line-height: 1.15; }
+    .brand-type strong { display: block; font-size: 15px; letter-spacing: .17em; font-weight: 900; }
+    .brand-type small { display: block; margin-top: 5px; color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .17em; }
+    .nav-links { display: flex; align-items: center; gap: 9px; }
+    .nav-links a { display: inline-flex; align-items: center; justify-content: center; padding: 11px 15px; border-radius: 12px; font-size: 13px; font-weight: 700; color: #d8cde0; transition: background .2s, color .2s, transform .2s; }
+    .nav-links a:hover { color: #fff; background: #ffffff13; transform: translateY(-1px); }
+    .nav-links .nav-special { padding-inline: 18px; color: #231027; background: linear-gradient(100deg, #ffaad2, #ffc5e4); box-shadow: 0 4px 18px rgba(254,105,178,.22); }
+    .nav-links .nav-special:hover { background: #ffcef0; color: #231027; }
+    .hero { display: grid; grid-template-columns: minmax(0,1.04fr) minmax(0,.96fr); gap: 30px; padding: 69px 0 74px; align-items: center; }
+    .eyebrow, .kicker { display: flex; gap: 10px; align-items: center; text-transform: uppercase; font-size: 11px; letter-spacing: .21em; font-weight: 850; color: #eeb2d5; }
+    .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #ff72b5; box-shadow: 0 0 0 5px rgba(255, 114, 181, .1), 0 0 16px #ff66aa88; animation: blink 2.3s ease-in-out infinite; flex: 0 0 auto; }
+    @keyframes blink { 50% { opacity: .55; } }
+    .hero h1 { font-size: clamp(51px, 5.65vw, 79px); line-height: 1.04; font-weight: 900; letter-spacing: -.069em; margin: 25px 0 23px; text-wrap: balance; }
+    .gradient-text { background: linear-gradient(112deg, #fff0f8 0%, #ff7ab8 40%, #a888ff 100%); color: transparent; -webkit-background-clip: text; background-clip: text; }
+    .hero .heart-small { color: #ff79b7; text-shadow: 0 0 25px #fa78ba80; font-weight: 600; }
+    .hero-text { font-size: 16px; line-height: 1.85; color: #c5b8ce; max-width: 520px; margin: 0 0 33px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 12px 20px; border-radius: 14px; font-size: 13px; font-weight: 800; border: 1px solid transparent; transition: transform .22s ease, box-shadow .22s ease, background .22s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: #291125; background: linear-gradient(110deg,#ffacd7,#ff69ad); box-shadow: 0 8px 30px #f65fa42f, inset 0 1px #ffedfa8e; }
+    .btn-primary:hover { box-shadow: 0 10px 37px #f65fa464; }
+    .btn-ghost { border-color: #ffffff27; background: #ffffff09; color: #f9eaf9; }
+    .btn-ghost:hover { background: #ffffff19; }
+    .btn svg, .card-link svg { width: 17px; height: 17px; flex: 0 0 auto; }
+    .hero-notes { margin-top: 39px; display: flex; flex-wrap: wrap; gap: 21px; color: #ab99b8; font-size: 12px; font-weight: 650; }
+    .hero-notes span { display: inline-flex; align-items: center; gap: 7px; }
+    .hero-notes b { font-size: 14px; color: #ff8abd; }
+    .hero-art { position: relative; width: min(100%, 493px); margin-left: auto; aspect-ratio: 1 / .92; display: grid; place-items: center; }
+    .art-halo { position: absolute; width: 79%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 42% 41%, #f985bc9e, #a54dce52 36%, #482f7c22 57%, transparent 68%); filter: blur(22px); }
+    .art-card { width: 84%; height: 82%; position: relative; border-radius: 35px; overflow: hidden; transform: rotate(-5deg); background: radial-gradient(circle at 33% 34%, #de86c64d, transparent 45%), linear-gradient(147deg, #49245e, #291737 56%, #191321); border: 1px solid #ffffff42; box-shadow: 0 39px 75px #0000009c, inset 0 1px 0 #ffffff25, 0 0 65px #cc64d01d; }
+    .art-card::before { content: ''; position: absolute; width: 125%; aspect-ratio:1; border: 1px solid #ffb8e52e; border-radius: 50%; left: -12%; top: -39%; box-shadow: 0 0 0 45px #c982e508, 0 0 0 91px #ee92d108; }
+    .art-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(125deg,#ffffff18 1%,transparent 32% 73%,#ffb8df07); }
+    .art-orbit { position: absolute; width: 65%; aspect-ratio: 1; border-radius: 50%; border: 1px dashed #ffdbf05c; left: 18%; top: 14%; transform: rotate(30deg); }
+    .art-symbol { position: absolute; left: 50%; top: 48%; width: 62%; transform: translate(-50%,-50%) rotate(5deg); filter: drop-shadow(0 14px 21px #0006); }
+    .art-symbol svg { width: 100%; height: auto; overflow: visible; }
+    .art-heading { position: absolute; left: 0; right: 0; bottom: 33px; text-align: center; line-height: 1; }
+    .art-heading b { display: block; font-size: clamp(30px,4vw,51px); letter-spacing: .13em; text-shadow: 0 7px 25px #0a041b; font-weight: 950; }
+    .art-heading small { display: block; color: #fcc6e6; margin-top: 12px; font-size: 11px; letter-spacing: .32em; font-weight: 800; }
+    .art-sticker { position: absolute; z-index: 2; background: #24152ff0; border: 1px solid #efbbf57a; box-shadow: 0 12px 32px #0008; color: #feeafb; border-radius: 14px; padding: 11px 16px; font-size: 12px; font-weight: 900; letter-spacing: .04em; transform: rotate(7deg); }
+    .sticker-one { left: -2%; top: 18%; }
+    .sticker-two { right: -2%; bottom: 13%; transform: rotate(6deg); background: #ffb9de; color: #451c3e; border-color: #fff4ff9e; }
+    .art-sparkle { position: absolute; z-index: 2; color: #ffbce4; text-shadow: 0 0 19px #ff98ce; font-size: 35px; }
+    .sparkle-one { right: 6%; top: 3%; }
+    .sparkle-two { left: 2%; bottom: 8%; font-size: 27px; }
+    .section { padding: 48px 0 36px; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 35px; margin-bottom: 29px; }
+    .section-heading h2 { font-size: clamp(34px, 4.2vw, 50px); line-height: 1.15; letter-spacing: -.055em; margin: 13px 0 0; font-weight: 880; text-wrap: balance; }
+    .section-heading p { max-width: 348px; margin: 0 0 5px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .section-number { color: #ff81c4; }
+    .payment-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+    .pay-card { position: relative; min-width: 0; padding: 27px; border-radius: var(--radius); border: 1px solid #ffffff22; overflow: hidden; background: linear-gradient(155deg, #261832 0%, #1b1227 68%, #170f21 100%); box-shadow: 0 20px 42px #00000025, inset 0 1px #ffffff0f; }
+    .pay-card::after { content: ''; position: absolute; border-radius: 50%; width: 310px; height: 310px; right: -160px; top: -160px; pointer-events: none; background: radial-gradient(circle, #e87ec63b, transparent 67%); }
+    .pay-card.revolut { background: linear-gradient(157deg,#1d1832,#171327 66%,#15101f); }
+    .pay-card.revolut::after { background: radial-gradient(circle,#9a8ef74b,transparent 67%); }
+    .pay-top { display: flex; align-items: center; gap: 12px; position: relative; z-index: 1; }
+    .pay-icon { display: grid; place-items: center; width: 49px; height: 49px; border-radius: 16px; flex-shrink: 0; background: #b9ff91; color: #153b12; font-size: 26px; font-weight: 950; letter-spacing: -.12em; font-style: italic; }
+    .pay-icon.revolut-icon { background: linear-gradient(140deg,#f7f6ff,#b8afff); color: #251743; font-style: normal; font-size: 28px; }
+    .pay-top h3 { margin: 0; font-size: 20px; line-height: 1.2; letter-spacing: -.035em; }
+    .pay-top p { margin: 4px 0 0; color: #c7bad3; font-size: 12px; }
+    .pay-label { color: #bba7ca; font-size: 11px; font-weight: 750; text-transform: uppercase; letter-spacing: .15em; margin: 33px 0 9px; }
+    .pay-value { color: #fff4fb; font-size: clamp(23px,3.15vw,35px); line-height: 1.25; font-weight: 850; letter-spacing: -.045em; overflow-wrap: anywhere; }
+    .copy-button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; width: 100%; padding: 13px 18px; margin-top: 20px; border-radius: 13px; border: 1px solid #ffffff24; color: #fff4fb; background: #ffffff17; cursor: pointer; font-size: 13px; font-weight: 850; transition: background .2s, border-color .2s, transform .2s; }
+    .copy-button:hover { background: #ffffff26; border-color: #f5c9ff68; transform: translateY(-1px); }
+    .copy-button svg { width: 17px; height: 17px; }
+    .pay-help { margin: 16px 0 0; font-size: 12px; line-height: 1.75; color: #b5a5c4; }
+    .more-label { display: flex; align-items: center; gap: 16px; margin: 31px 0 18px; color: #b89cc9; font-size: 11px; font-weight: 850; letter-spacing: .2em; text-transform: uppercase; }
+    .more-label:after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg,#e6b3f23a, transparent); }
+    .methods-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 17px; }
+    .method-card { min-width: 0; padding: 22px; border-radius: 21px; background: rgba(27,20,39,.86); border: 1px solid #ffffff1e; min-height: 210px; display: flex; flex-direction: column; }
+    .method-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 17px; }
+    .method-name { display: flex; align-items: center; gap: 9px; font-size: 18px; letter-spacing: -.03em; font-weight: 850; }
+    .method-name .glyph { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; font-size: 19px; background: #bfa8ff24; }
+    .pill { flex-shrink: 0; color: #c8bad7; border-radius: 9px; padding: 5px 8px; background: #ffffff0b; border: 1px solid #ffffff12; font-weight: 800; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
+    .pill.active { color: #bcf1d5; border-color: #83d4a539; background: #75d29f12; }
+    .method-card p { margin: 0; color: #c2b6cb; font-size: 13px; line-height: 1.78; }
+    .method-card strong { color: #f8eefa; }
+    .method-value { font-size: 14px; color: #f3e4f4; font-weight: 800; overflow-wrap: anywhere; margin-bottom: 9px; }
+    .method-card .method-foot { margin-top: auto; padding-top: 16px; color: #c69ad0; font-size: 11px; font-weight: 700; }
+    .method-card .copy-button { width: 100%; margin-top: auto; padding-block: 11px; font-size: 12px; }
+    .method-card .extra-link { display: inline-flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 11px 12px; margin-top: auto; background: #ffffff15; border: 1px solid #ffffff25; border-radius: 12px; font-size: 12px; font-weight: 800; }
+    .method-card .extra-link:hover { background: #ffffff25; }
+    [hidden] { display: none !important; }
+
+    .qr-card { grid-column: span 2; }
+    .qr-wrap { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center; margin-top: 8px; }
+    .qr-img { width: 120px; height: 120px; padding: 8px; border-radius: 18px; background: #fff; object-fit: contain; }
+    .network-tag { display: inline-flex; align-items: center; gap: 8px; width: fit-content; padding: 7px 10px; margin: 12px 0 10px; border-radius: 999px; background: #ffffff10; border: 1px solid #ffffff18; color: #f8e9fb; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .wallet-note { color: #c69ad0; font-size: 11px; line-height: 1.6; margin-top: 10px; }
+
+    .private-pay-note { display:flex;align-items:center;gap:10px;padding:17px 18px;margin:9px 0 14px;border:1px solid #ffffff1f;border-radius:14px;background:#ffffff0d;font-size:14px;font-weight:800;color:#ffe4f4; }
+    .private-pay-note .lock-emblem {display:grid;place-items:center;width:28px;height:28px;border-radius:9px;background:#ff8ec625;color:#ffabd5;font-size:16px;}
+    .channels-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+    .channel-card.software {background:linear-gradient(135deg,#19283c,#191424 70%)}
+    .channel-card.software::before {background:radial-gradient(circle,#56b6e354,transparent 72%)}
+    .channel-card.little {background:linear-gradient(135deg,#292644,#1b142b 70%)}
+    .channel-card.little::before {background:radial-gradient(circle,#aca4ef66,transparent 72%)}
+    .channel-icon {position:relative;overflow:hidden;flex-shrink:0;isolation:isolate;}
+    .avatar-fallback {position:absolute;inset:0;display:grid;place-items:center;}
+    .channel-icon img {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;border-radius:inherit;}
+    .qr-img {image-rendering:auto;image-rendering:crisp-edges;}
+    .qr-card .extra-link {max-width:320px;margin-top:9px;}
+    .micro-notice { display: flex; gap: 9px; align-items: flex-start; margin: 18px 0 0; color: #9e90ae; font-size: 11px; line-height: 1.7; }
+    .micro-notice svg { flex: 0 0 16px; margin-top: 2px; }
+    .channels-section { padding-top: 93px; }
+    .channels-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+    .channel-card { position: relative; display: flex; flex-direction: column; min-height: 313px; padding: 29px; border-radius: var(--radius); overflow: hidden; border: 1px solid #ffffff22; background: linear-gradient(137deg,#21203c,#191424 70%); }
+    .channel-card::before { content: ''; position: absolute; width: 230px; height: 230px; right: -90px; top: -100px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, #806dff6a 0,transparent 72%); }
+    .channel-card.second { background: linear-gradient(137deg,#301c30,#1b1326 72%); }
+    .channel-card.second::before { background: radial-gradient(circle,#e560a763, transparent 72%); }
+    .channel-head { display: flex; align-items: start; justify-content: space-between; gap: 10px; position: relative; z-index: 1; }
+    .channel-icon { width: 59px; height: 59px; border-radius: 19px; display: grid; place-items: center; font-size: 30px; background: linear-gradient(140deg,#8b8df7,#5046b8); box-shadow: inset 0 1px 0 #ffffff39; }
+    .channel-card.second .channel-icon { background: linear-gradient(140deg,#fc83c1,#994877); }
+    .channel-count { font-size: 11px; font-weight: 800; color: #b9aacf; letter-spacing: .12em; }
+    .age-badge { color: #ffd1e6; background: #ff639f20; border: 1px solid #ff90b763; font-size: 12px; border-radius: 9px; padding: 6px 10px; font-weight: 900; }
+    .channel-card h3 { margin: 24px 0 8px; font-size: 25px; line-height: 1.2; font-weight: 860; letter-spacing: -.037em; }
+    .channel-card p { color: #c4b4d1; font-size: 13px; line-height: 1.76; margin: 0 0 21px; max-width: 340px; }
+    .card-link { display: inline-flex; gap: 8px; align-items: center; width: fit-content; padding: 12px 16px; margin-top: auto; border-radius: 12px; background: #ffffff14; border: 1px solid #ffffff23; font-size: 12px; font-weight: 850; transition: background .2s, transform .2s; }
+    .card-link:hover { background: #ffffff24; transform: translateY(-2px); }
+    .ads-section { padding-top: 84px; padding-bottom: 92px; }
+    .ads-card { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 35px; overflow: hidden; padding: 46px 50px; border-radius: 30px; border: 1px solid #f2a2d951; background: radial-gradient(circle at 79% -15%,#ff6baf38,transparent 40%), linear-gradient(130deg,#351935,#271831 65%,#20142d); box-shadow: inset 0 1px #ffffff26, 0 22px 65px #0003; }
+    .ads-card::before { content:'✧'; position: absolute; top:-47px; right: 20%; color: #ffb8dd19; font-size: 225px; transform: rotate(-13deg); line-height: 1; pointer-events: none; }
+    .ads-copy { position: relative; z-index: 1; max-width: 480px; }
+    .ads-card h2 { font-size: clamp(31px,3.6vw,43px); line-height: 1.18; letter-spacing: -.05em; margin: 13px 0; }
+    .ads-card p:not(.kicker) { margin: 0; font-size: 13px; line-height: 1.8; color: #d3bdd2; }
+    .ads-actions { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 11px; min-width: 230px; }
+    .ads-actions .btn { width: 100%; white-space: nowrap; }
+    .footer { border-top: 1px solid #ffffff16; padding: 29px 0 32px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; color: #a99bb6; font-size: 12px; }
+    .footer b { color: #f6b9de; letter-spacing: .18em; }
+    .footer-heart { color: var(--pink); }
+    .footer a { color: #dcc9ea; text-decoration: underline; text-decoration-color: #ffffff45; text-underline-offset: 4px; }
+    .toast { position: fixed; z-index: 20; bottom: max(24px,env(safe-area-inset-bottom)); left: 50%; transform: translate(-50%, 22px); opacity: 0; pointer-events:none; padding: 13px 20px; background: #e9ffe9; color: #203d2d; font-size: 13px; font-weight: 800; border-radius: 14px; box-shadow: 0 16px 50px #000a; transition: transform .2s, opacity .2s; white-space: nowrap; max-width: calc(100% - 28px); }
+    .toast.visible { opacity: 1; transform: translate(-50%,0); }
+    @media (max-width: 950px) {
+      .hero { gap: 12px; padding-top: 56px; }
+      .hero h1 { font-size: clamp(45px,5.6vw,65px); }
+      .art-sticker { padding: 8px 12px; font-size: 11px; }
+      .ads-card { padding: 39px 34px; }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(100% - 36px,590px); }
+      .header { padding: 13px 0 10px; }
+      .nav { min-height: 60px; padding: 8px 10px; border-radius: 17px; }
+      .brand-mark { width: 40px; height: 40px; border-radius: 12px; }
+      .brand-type small { font-size: 9px; }
+      .nav-links { gap: 2px; }
+      .nav-links a { display: none; }
+      .nav-links .nav-special { display: inline-flex; padding: 10px 13px; font-size: 12px; }
+      .hero { display: flex; flex-direction: column; align-items: stretch; gap: 6px; padding: 50px 0 48px; }
+      .hero h1 { margin-top: 22px; font-size: clamp(46px,10vw,67px); }
+      .hero-text { font-size: 15px; }
+      .hero-notes { margin-top: 25px; }
+      .hero-art { max-width: 450px; margin: 12px auto 0; width: 100%; }
+      .art-heading b { font-size: clamp(32px,7vw,48px); }
+      .section { padding-top: 35px; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 13px; }
+      .payment-grid, .channels-grid { grid-template-columns: 1fr; }
+      .methods-grid { grid-template-columns: 1fr 1fr; }
+      .method-card:first-child { grid-column: 1/-1; min-height: 175px; }
+      .qr-card { grid-column: 1/-1; }
+      .qr-wrap { grid-template-columns: 100px 1fr; }
+      .qr-img { width: 100px; height: 100px; }
+      .channels-section { padding-top: 72px; }
+      .channel-card { min-height: 255px; }
+      .ads-section { padding-top: 57px; padding-bottom: 60px; }
+      .ads-card { display: block; }
+      .ads-actions { margin-top: 26px; }
+      .footer-inner { flex-wrap: wrap; }
+    }
+    @media (max-width: 430px) {
+      .container { width: calc(100% - 30px); }
+      .hero { padding-top: 39px; }
+      .hero h1 { font-size: clamp(42px,11.3vw,52px); }
+      .hero-actions .btn { flex: 1 1 auto; padding-inline: 15px; }
+      .hero-notes { gap: 11px 18px; }
+      .hero-art { width: 97%; margin-top: 3px; }
+      .art-card { width: 89%; height: 85%; }
+      .sticker-one { left: -1%; }
+      .sticker-two { right: -1%; }
+      .section-heading h2 { font-size: 36px; }
+      .pay-card { padding: 23px; }
+      .pay-value { font-size: 31px; }
+      .methods-grid { grid-template-columns: 1fr; }
+      .method-card, .method-card:first-child { min-height: 175px; grid-column: auto; }
+      .qr-card { grid-column: auto; }
+      .qr-wrap { grid-template-columns: 1fr; }
+      .qr-img { width: 128px; height: 128px; }
+      .channel-card { padding: 24px; }
+      .ads-card { padding: 30px 24px; }
+      .ads-card h2 { font-size: 32px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <div class="page" id="top">
+    <header class="header">
+      <div class="container">
+        <nav class="nav" aria-label="Главное меню">
+          <a class="brand" href="#top" aria-label="Нян-Mel — наверх">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <span class="brand-type"><strong>Нян-Mel</strong><small>tiktok & stream links</small></span>
+          </a>
+          <div class="nav-links">
+            <a href="#support">Донат</a>
+            <a href="#channels">Каналы</a>
+            <a href="#ads">Сотрудничество</a>
+            <a class="nav-special" href="#support">💖 Поддержать</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="container hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="live-dot" aria-hidden="true"></span> МОИ ССЫЛКИ И ПОДДЕРЖКА</div>
+          <h1 id="hero-title">Привет, я <span class="gradient-text">Нян-Mel</span><span class="heart-small"> ♡</span></h1>
+          <p class="hero-text">Здесь собраны способы поддержки, мои Telegram-проекты Nitokin и полезные ссылки. Всё в одном аккуратном месте.</p>
+          <div class="hero-actions">
+            <a href="#support" class="btn btn-primary">💗 Поддержать стрим <span aria-hidden="true">↗</span></a>
+            <a href="#channels" class="btn btn-ghost">Telegram-проекты <span aria-hidden="true">↘</span></a>
+          </div>
+          <div class="hero-notes" aria-label="Разделы сайта">
+            <span><b>✦</b> Донаты</span><span><b>✧</b> Telegram / Nitokin</span><span><b>♡</b> Сотрудничество</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-halo"></div>
+          <div class="art-card">
+            <div class="art-orbit"></div>
+            <div class="art-symbol">
+              <svg viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Игровой джойстик и сердце">
+                <defs>
+                  <linearGradient id="gpad" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff0fc"/><stop offset="1" stop-color="#f8b5e4"/></linearGradient>
+                  <linearGradient id="gheart" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#ff85c1"/><stop offset="1" stop-color="#b586ff"/></linearGradient>
+                </defs>
+                <path d="M180 93c-38-44-95-17-85 28 8 42 85 96 85 96s76-53 84-95c11-47-52-75-84-29Z" fill="url(#gheart)" opacity=".67"/>
+                <g transform="rotate(-8 180 130)">
+                  <path d="M100 92c-20 0-40 10-46 31L33 197c-7 26 22 45 44 28l50-38h106l50 38c22 17 51-2 44-28l-21-74c-6-21-26-31-46-31H100Z" fill="url(#gpad)" stroke="#ffffff" stroke-width="4"/>
+                  <path d="M99 106h160c17 0 27 8 32 25l19 65c3 13-7 19-18 12l-53-40H120l-53 40c-11 7-21 1-18-12l19-65c5-17 15-25 31-25Z" fill="#42264e" opacity=".12"/>
+                  <path d="M104 119v44M82 141h44" stroke="#442651" stroke-width="13" stroke-linecap="round"/>
+                  <circle cx="239" cy="128" r="10" fill="#ad64d9"/><circle cx="264" cy="149" r="10" fill="#f27bbf"/><circle cx="217" cy="149" r="10" fill="#f27bbf"/><circle cx="239" cy="170" r="10" fill="#ad64d9"/>
+                  <path d="M164 140h10M185 140h10" stroke="#8b5b99" stroke-width="7" stroke-linecap="round"/>
+                  <path d="M129 106c21-5 84-5 107 0" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".65"/>
+                </g>
+                <path d="m49 43 4 12 12 4-12 4-4 12-4-12-12-4 12-4 4-12Zm262 20 5 15 15 5-15 5-5 15-5-15-15-5 15-5 5-15Z" fill="#ffe2fb"/>
+              </svg>
+            </div>
+            <div class="art-heading"><b>НЯН-MEL</b><small>SUPPORT · LINKS · COMMUNITY</small></div>
+          </div>
+          <div class="art-sticker sticker-one">✦ NYAN-MEL</div>
+          <div class="art-sticker sticker-two">💗 THANK YOU!</div>
+          <div class="art-sparkle sparkle-one">✧</div><div class="art-sparkle sparkle-two">✦</div>
+        </div>
+      </section>
+
+      <section id="support" class="container section support-section" aria-labelledby="support-heading">
+        <div class="section-heading">
+          <div><div class="kicker"><span class="section-number">01</span> / поддержка стрима</div><h2 id="support-heading">Поддержать <span class="gradient-text">меня 💖</span></h2></div>
+          <p>Если тебе нравится мой контент, любой донат поможет делать ещё больше. Спасибо за поддержку и тепло!</p>
+        </div>
+        <div class="payment-grid">
+          <article class="pay-card wise">
+            <div class="pay-top"><span class="pay-icon" aria-hidden="true">W</span><div><h3>Wise</h3><p>Переводы через Wise</p></div></div>
+            <div class="pay-label">Данные по запросу</div>
+            <div class="private-pay-note"><span class="lock-emblem" aria-hidden="true">✦</span> Реквизиты не публикуются</div>
+            <p class="pay-help">Хочешь поддержать меня через Wise? Напиши в личные сообщения — отправлю тег лично. 💗</p>
+          </article>
+          <article class="pay-card revolut">
+            <div class="pay-top"><span class="pay-icon revolut-icon" aria-hidden="true">R</span><div><h3>Revolut</h3><p>Переводы через Revolut</p></div></div>
+            <div class="pay-label">Данные по запросу</div>
+            <div class="private-pay-note"><span class="lock-emblem" aria-hidden="true">✦</span> Реквизиты не публикуются</div>
+            <p class="pay-help">Хочешь поддержать меня через Revolut? Напиши в личные сообщения — пришлю тег индивидуально. 💗</p>
+          </article>
+        </div>
+        <div class="more-label">Другие способы</div>
+        <div class="methods-grid">
+          <article class="method-card">
+            <div class="method-header"><div class="method-name"><span class="glyph">🇵🇱</span> BLIK</div><span class="pill active">Польша</span></div>
+            <p>Если ты из <strong>Польши</strong>, можно поддержать через <strong>BLIK</strong>. Просто скажи об этом на стриме — объясню, как перевести. 💗</p>
+            <div class="method-foot">Коды BLIK не отправляй в открытый чат.</div>
+          </article>
+          <article class="method-card qr-card">
+            <div class="method-header"><div class="method-name"><span class="glyph">₮</span> TRON / USDT</div><span class="pill active">Crypto</span></div>
+            <div class="network-tag">Сеть: TRON · TRC20</div>
+            <div class="qr-wrap">
+              <img class="qr-img" src="data:image/png;base64,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" alt="QR-код криптокошелька: адрес TRON для сети TRC20" width="176" height="176" loading="eager">
+              <div>
+                <div class="method-value" id="tron-value">TCfLV36oTCpoYEZeFwZU9xa4A8ud3gfGQg</div>
+                <p>Для переводов <strong>TRX</strong> или <strong>USDT (TRC20)</strong> по сети <strong>TRON</strong>. Отсканируй QR кошельком или скопируй адрес.</p>
+                <button class="copy-button" type="button" data-copy-from="tron-value">Скопировать адрес</button><a class="extra-link" href="data:image/png;base64,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" download="NyanMel_TRON_TRC20_QR.png" id="qr-download">Скачать QR-код ↓</a>
+                <div class="wallet-note">⚠️ Выбирай сеть <strong>TRON (TRC20)</strong>. Для USDT не выбирай ERC20/BEP20. Сверь адрес и сеть перед переводом.</div>
+              </div>
+            </div>
+          </article>
+          <article class="method-card">
+            <div class="method-header"><div class="method-name"><span class="glyph">🇷🇺</span> Из РФ</div><span class="pill" id="russia-status">Скоро</span></div>
+            <div class="method-value" id="russia-value">Реквизиты появятся здесь</div>
+            <p id="russia-hint">Место для оплаты из России: СБП, карта или другой удобный способ.</p>
+            <button class="copy-button" type="button" data-copy-from="russia-value" id="russia-copy" hidden>Скопировать реквизиты</button>
+          </article>
+          <article class="method-card">
+            <div class="method-header"><div class="method-name"><span class="glyph">💌</span> PayPal</div><span class="pill" id="paypal-status">Скоро</span></div>
+            <div class="method-value" id="paypal-value">Ссылка появится здесь</div>
+            <p id="paypal-hint">Здесь можно будет указать PayPal.Me или почту для донатов.</p>
+            <button class="copy-button" type="button" data-copy-from="paypal-value" id="paypal-copy" hidden>Скопировать</button>
+            <a class="extra-link" id="paypal-open" href="#support" target="_blank" rel="noopener noreferrer" hidden>Перейти в PayPal ↗</a>
+          </article>
+        </div>
+        <p class="micro-notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>Переводы проходят в выбранном платёжном сервисе, а не на этом сайте. Перед отправкой обязательно проверь данные получателя.</p>
+      </section>
+
+      <section id="channels" class="container section channels-section" aria-labelledby="channels-heading">
+        <div class="section-heading"><div><div class="kicker"><span class="section-number">02</span> / telegram</div><h2 id="channels-heading">Каналы <span class="gradient-text">Nitokin ✨</span></h2></div></div>
+        <div class="channels-grid">
+          <article class="channel-card game">
+            <div class="channel-head"><span class="channel-icon" aria-hidden="true"><span class="avatar-fallback">🎮</span><img src="https://t.me/i/userpic/320/nitoKi.jpg" loading="lazy" alt="" onerror="this.style.display='none'"></span><span class="channel-count">NITOKIN · 01</span></div>
+            <h3>Nitokin · Игры</h3>
+            <p>Игры, подборки, обновления и новости основного проекта.</p>
+            <a class="card-link" href="https://t.me/nitoKi" target="_blank" rel="noopener noreferrer">Открыть канал <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+          </article>
+          <article class="channel-card software">
+            <div class="channel-head"><span class="channel-icon" aria-hidden="true"><span class="avatar-fallback">💻</span><img src="https://t.me/i/userpic/320/nitokin_soft.jpg" loading="lazy" alt="" onerror="this.style.display='none'"></span><span class="channel-count">NITOKIN · 02</span></div>
+            <h3>Nitokin · Софт</h3>
+            <p>Программы, приложения и полезные инструменты для ПК.</p>
+            <a class="card-link" href="https://t.me/nitokin_soft" target="_blank" rel="noopener noreferrer">Открыть канал <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+          </article>
+          <article class="channel-card little">
+            <div class="channel-head"><span class="channel-icon" aria-hidden="true"><span class="avatar-fallback">🕹️</span><img src="https://t.me/i/userpic/320/little_games_nitokin.jpg" loading="lazy" alt="" onerror="this.style.display='none'"></span><span class="channel-count">NITOKIN · 03</span></div>
+            <h3>Nitokin · Маленькие игры</h3>
+            <p>Небольшие игры, которые удобно скачать и попробовать.</p>
+            <a class="card-link" href="https://t.me/little_games_nitokin" target="_blank" rel="noopener noreferrer">Открыть канал <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+          </article>
+          <article class="channel-card extra">
+            <div class="channel-head"><span class="channel-icon" aria-hidden="true"><span class="avatar-fallback">🌙</span><img src="https://t.me/i/userpic/320/nitokin_hentai.jpg" loading="lazy" alt="" onerror="this.style.display='none'"></span><span class="channel-count">NITOKIN · 04</span></div>
+            <h3>Nitokin · Дополнительный</h3>
+            <p>Дополнительный тематический Telegram-канал проекта.</p>
+            <a class="card-link" href="https://t.me/nitokin_hentai" target="_blank" rel="noopener noreferrer">Открыть канал <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+          </article>
+        </div>
+      </section>
+
+      <section id="ads" class="container section ads-section" aria-labelledby="ads-heading">
+        <div class="ads-card">
+          <div class="ads-copy"><div class="kicker"><span class="section-number">03</span> / реклама и сотрудничество</div><h2 id="ads-heading">Давай сделаем <span class="gradient-text">что-то классное!</span></h2><p>Хочешь разместить рекламу в канале или обсудить сотрудничество? Выбирай удобный способ связи.</p></div>
+          <div class="ads-actions">
+            <a class="btn btn-primary" href="https://telega.in/c/nitoKi" target="_blank" rel="noopener noreferrer">Заказать рекламу ↗</a>
+            <a class="btn btn-ghost" href="https://telegra.ph/Reklama-i-sotrudnichestvo-11-04" target="_blank" rel="noopener noreferrer">Условия и сотрудничество ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><div class="container footer-inner"><span><b>НЯН-MEL</b> &nbsp;·&nbsp; создано с <span class="footer-heart">♥</span> для сообщества</span><span><a href="#top">Наверх ↑</a> &nbsp; · &nbsp; Спасибо, что ты здесь ✨</span></div></footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+    /* =============================================================
+       РЕДАКТИРОВАНИЕ РЕКВИЗИТОВ — МЕНЯЙ ТОЛЬКО ЗНАЧЕНИЯ НИЖЕ
+       russia: номер для СБП / банковские реквизиты / ссылка
+       paypal: PayPal.Me ссылка (https://...) ИЛИ email PayPal
+       Пустая строка = на сайте появится пометка «Скоро».
+       ============================================================= */
+    const SITE_DATA = {
+      tron: 'TCfLV36oTCpoYEZeFwZU9xa4A8ud3gfGQg',
+      russia: '',
+      paypal: ''
+    };
+
+    const text = (id, content) => { document.getElementById(id).textContent = content; };
+    text('tron-value', SITE_DATA.tron);
+
+    function fillOptional(method, emptyLabel) {
+      const value = (SITE_DATA[method] || '').trim();
+      const copyBtn = document.getElementById(method + '-copy');
+      const badge = document.getElementById(method + '-status');
+      text(method + '-value', value || emptyLabel);
+      if (value) {
+        badge.textContent = 'Доступно';
+        badge.classList.add('active');
+        copyBtn.hidden = false;
+        document.getElementById(method + '-hint').hidden = true;
+        if (method === 'paypal' && /^https:\/\//i.test(value)) {
+          document.getElementById('paypal-open').href = value;
+          document.getElementById('paypal-open').hidden = false;
+          copyBtn.hidden = true;
+        }
+      }
+    }
+    fillOptional('russia', 'Реквизиты появятся здесь');
+    fillOptional('paypal', 'Ссылка появится здесь');
+
+    let toastTimer;
+    function toast(message) {
+      const el = document.getElementById('toast');
+      el.textContent = message;
+      el.classList.add('visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.remove('visible'), 2300);
+    }
+    async function copyToClipboard(value) {
+      try {
+        if (!navigator.clipboard || !window.isSecureContext) throw new Error('Fallback');
+        await navigator.clipboard.writeText(value);
+      } catch (_) {
+        const temp = document.createElement('textarea');
+        temp.value = value;
+        temp.setAttribute('readonly', '');
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.select();
+        const copied = document.execCommand('copy');
+        temp.remove();
+        if (!copied) throw new Error('Не получилось скопировать');
+      }
+    }
+
+    document.querySelectorAll('[data-copy-from]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const value = document.getElementById(btn.dataset.copyFrom).textContent.trim();
+        if (!value) return;
+        try { await copyToClipboard(value); toast('💗 Скопировано в буфер обмена!'); }
+        catch (_) { toast('Не удалось скопировать. Выдели текст вручную.'); }
+      });
+    });
+  </script>
+</body>
+</html>
