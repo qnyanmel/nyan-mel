@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#100b18">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="Нян-Mel — поддержка, Telegram-проекты Nitokin, реклама и полезные ссылки. Всё важное в одном месте.">
-  <title>Нян-Mel ✦ Поддержка, ссылки и Telegram-проекты</title>
+  <meta name="description" content="Нян-Mel — Twitch-стримы, правила совместных игр со зрителями, поддержка, Telegram-проекты и полезные ссылки.">
+  <title>Нян-Mel ✦ Twitch, стримы, правила игр и ссылки</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231a0e2a'/%3E%3Cpath d='M15 45V18l34 28V19' fill='none' stroke='%23ff72bc' stroke-width='8' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
   <style>
     :root {
@@ -242,6 +242,42 @@
       .ads-card h2 { font-size: 32px; }
     }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+
+    /* Twitch и раздел совместных игр */
+    .nav-links .nav-twitch { color: #f3e8ff; background: rgba(145, 86, 255, .18); border: 1px solid rgba(182, 145, 255, .36); }
+    .nav-links .nav-twitch:hover { color: #fff; background: rgba(145, 86, 255, .32); }
+    .nav-links .nav-rules { color: #ffcfeb; }
+    .btn-twitch { color: #fff; background: linear-gradient(112deg, #a970ff, #7b45cb); box-shadow: 0 8px 32px rgba(135, 70, 239, .28), inset 0 1px #ffffff55; }
+    .btn-twitch:hover { box-shadow: 0 11px 37px rgba(151, 85, 255, .46); }
+    .stream-section { padding-top: 27px; }
+    .stream-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 18px; }
+    .stream-card { position: relative; overflow: hidden; min-width: 0; min-height: 327px; border-radius: var(--radius); padding: 31px; border: 1px solid #ffffff28; display: flex; flex-direction: column; align-items: flex-start; isolation: isolate; }
+    .stream-card h3 { position: relative; z-index: 1; font-size: clamp(23px, 2.7vw, 31px); line-height: 1.19; letter-spacing: -.04em; margin: 16px 0 12px; max-width: 405px; }
+    .stream-card p { position: relative; z-index: 1; font-size: 13px; line-height: 1.8; color: #d4c3e6; margin: 0; max-width: 410px; }
+    .stream-card .btn, .stream-card .card-link { position: relative; z-index: 1; margin-top: auto; }
+    .stream-card .btn { margin-top: 27px; }
+    .stream-card-primary { background: radial-gradient(circle at 82% 32%, #b274ff37, transparent 37%), linear-gradient(120deg, #30204b, #20152f 75%); }
+    .stream-card-primary::after { content: '✦'; position: absolute; z-index: -1; top: -35px; right: 16px; font-size: 255px; line-height: 1; color: #c59bff15; transform: rotate(-18deg); pointer-events: none; }
+    .stream-card-rules { background: radial-gradient(circle at 105% -7%, #ff80bb23, transparent 58%), linear-gradient(135deg, #302037, #1c1529 77%); }
+    .stream-label { position: relative; z-index: 1; display: inline-flex; gap: 9px; align-items: center; padding: 8px 12px; background: #ffffff16; border: 1px solid #ffffff26; color: #efdfff; border-radius: 999px; letter-spacing: .11em; font-size: 10px; font-weight: 900; text-transform: uppercase; }
+    .stream-label b { color: #c29bff; }
+    .stream-card-rules .stream-label b { color: #ff8ec5; }
+    .rules-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 7px; margin: 17px 0 9px; }
+    .rules-tags span { font-size: 10px; font-weight: 750; padding: 7px 9px; border-radius: 8px; color: #ecd4e8; background: #ffffff0b; border: 1px solid #ffffff19; }
+    .stream-card .card-link { margin-top: auto; }
+    @media (max-width: 760px) {
+      .nav-links .nav-special { display: none; }
+      .nav-links .nav-twitch, .nav-links .nav-rules { display: inline-flex; padding: 10px 11px; font-size: 12px; }
+      .stream-grid { grid-template-columns: 1fr; }
+      .stream-section { padding-top: 12px; }
+      .stream-card { min-height: 285px; padding: 26px; }
+    }
+    @media (max-width: 430px) {
+      .brand-type small { display: none; }
+      .nav-links .nav-twitch, .nav-links .nav-rules { padding: 9px 8px; font-size: 11px; }
+      .nav { gap: 6px; }
+      .stream-card { padding: 23px; min-height: 280px; }
+    }
   </style>
 </head>
 <body>
@@ -254,7 +290,8 @@
             <span class="brand-type"><strong>Нян-Mel</strong><small>tiktok & stream links</small></span>
           </a>
           <div class="nav-links">
-            <a href="https://pay.cloudtips.ru/p/caa781c8" target="_blank" rel="noopener noreferrer">Донат</a>
+            <a class="nav-twitch" href="https://www.twitch.tv/nnyanmel/about" target="_blank" rel="noopener noreferrer">💜 Twitch</a>
+            <a class="nav-rules" href="rules.html">Правила игр</a>
             <a href="#channels">Каналы</a>
             <a href="#ads">Сотрудничество</a>
             <a class="nav-special" href="https://pay.cloudtips.ru/p/caa781c8" target="_blank" rel="noopener noreferrer">💖 Донат</a>
@@ -266,15 +303,17 @@
     <main>
       <section class="container hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <div class="eyebrow"><span class="live-dot" aria-hidden="true"></span> МОИ ССЫЛКИ И ПОДДЕРЖКА</div>
+          <div class="eyebrow"><span class="live-dot" aria-hidden="true"></span> СТРИМЫ, ССЫЛКИ И ПОДДЕРЖКА</div>
           <h1 id="hero-title">Привет, я <span class="gradient-text">Нян-Mel</span><span class="heart-small"> ♡</span></h1>
-          <p class="hero-text">Здесь собраны способы поддержки, мои Telegram-проекты Nitokin и полезные ссылки. Всё в одном аккуратном месте.</p>
+          <p class="hero-text">Заходи на мой Twitch, присоединяйся к играм со зрителями и знакомься с правилами участия. Здесь также собраны способы поддержки и Telegram-проекты Nitokin.</p>
           <div class="hero-actions">
+            <a href="https://www.twitch.tv/nnyanmel/about" class="btn btn-twitch" target="_blank" rel="noopener noreferrer">💜 Мой Twitch <span aria-hidden="true">↗</span></a>
             <a href="https://pay.cloudtips.ru/p/caa781c8" class="btn btn-primary" target="_blank" rel="noopener noreferrer">💗 Поддержать стрим <span aria-hidden="true">↗</span></a>
             <a href="#channels" class="btn btn-ghost">Telegram-проекты <span aria-hidden="true">↘</span></a>
+            <a href="rules.html" class="btn btn-ghost">📜 Правила игр <span aria-hidden="true">↗</span></a>
           </div>
           <div class="hero-notes" aria-label="Разделы сайта">
-            <span><b>✦</b> Донаты</span><span><b>✧</b> Telegram / Nitokin</span><span><b>♡</b> Сотрудничество</span>
+            <span><b>✦</b> Twitch</span><span><b>✧</b> Игры со зрителями</span><span><b>♡</b> Донаты и Telegram</span>
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
@@ -307,9 +346,32 @@
         </div>
       </section>
 
+
+      <section id="streams" class="container section stream-section" aria-labelledby="streams-heading">
+        <div class="section-heading">
+          <div><div class="kicker"><span class="section-number">01</span> / стримы и сообщество</div><h2 id="streams-heading">Увидимся <span class="gradient-text">на Twitch 💜</span></h2></div>
+          <p>Общаемся, играем и проводим время вместе. Перед совместной игрой обязательно прочитай правила.</p>
+        </div>
+        <div class="stream-grid">
+          <article class="stream-card stream-card-primary">
+            <span class="stream-label"><b>✦</b> Twitch / nnyanmel</span>
+            <h3>Залетай на канал, буду рада тебя видеть!</h3>
+            <p>Мой Twitch — место для стримов, общения и совместных игровых вечеров. Расписание и трансляции смотри на странице канала.</p>
+            <a class="btn btn-twitch" href="https://www.twitch.tv/nnyanmel/about" target="_blank" rel="noopener noreferrer">💜 Перейти на Twitch <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="stream-card stream-card-rules">
+            <span class="stream-label"><b>✦</b> Перед совместной игрой</span>
+            <h3>Играем вместе — уважаем друг друга</h3>
+            <p>Ненависть, дискриминация, травля и запрещённый на Twitch или TikTok контент недопустимы. За серьёзное нарушение — исключение из игры и игровой чёрный список.</p>
+            <div class="rules-tags" aria-label="Главные требования"><span>Без ненависти</span><span>Без травли</span><span>Без запрещённого контента</span></div>
+            <a class="card-link" href="rules.html">📜 Читать все правила <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </section>
+
       <section id="support" class="container section support-section" aria-labelledby="support-heading">
         <div class="section-heading">
-          <div><div class="kicker"><span class="section-number">01</span> / поддержка стрима</div><h2 id="support-heading">Поддержать <span class="gradient-text">меня 💖</span></h2></div>
+          <div><div class="kicker"><span class="section-number">02</span> / поддержка стрима</div><h2 id="support-heading">Поддержать <span class="gradient-text">меня 💖</span></h2></div>
           <p>Если тебе нравится мой контент, любой донат поможет делать ещё больше. Спасибо за поддержку и тепло!</p>
         </div>
         <div class="donation-highlight">
@@ -361,7 +423,7 @@
       </section>
 
       <section id="channels" class="container section channels-section" aria-labelledby="channels-heading">
-        <div class="section-heading"><div><div class="kicker"><span class="section-number">02</span> / telegram</div><h2 id="channels-heading">Каналы <span class="gradient-text">Nitokin ✨</span></h2></div></div>
+        <div class="section-heading"><div><div class="kicker"><span class="section-number">03</span> / telegram</div><h2 id="channels-heading">Каналы <span class="gradient-text">Nitokin ✨</span></h2></div></div>
         <div class="channels-grid">
           <article class="channel-card game">
             <div class="channel-head"><span class="channel-icon" aria-hidden="true"><span class="avatar-fallback">🎮</span><img src="https://t.me/i/userpic/320/nitoKi.jpg" loading="lazy" alt="" onerror="this.style.display='none'"></span><span class="channel-count">NITOKIN · 01</span></div>
@@ -392,7 +454,7 @@
 
       <section id="ads" class="container section ads-section" aria-labelledby="ads-heading">
         <div class="ads-card">
-          <div class="ads-copy"><div class="kicker"><span class="section-number">03</span> / реклама и сотрудничество</div><h2 id="ads-heading">Давай сделаем <span class="gradient-text">что-то классное!</span></h2><p>Хочешь разместить рекламу в канале или обсудить сотрудничество? Выбирай удобный способ связи.</p></div>
+          <div class="ads-copy"><div class="kicker"><span class="section-number">04</span> / реклама и сотрудничество</div><h2 id="ads-heading">Давай сделаем <span class="gradient-text">что-то классное!</span></h2><p>Хочешь разместить рекламу в канале или обсудить сотрудничество? Выбирай удобный способ связи.</p></div>
           <div class="ads-actions">
             <a class="btn btn-primary" href="https://telega.in/c/nitoKi" target="_blank" rel="noopener noreferrer">Заказать рекламу ↗</a>
             <a class="btn btn-ghost" href="https://telegra.ph/Reklama-i-sotrudnichestvo-11-04" target="_blank" rel="noopener noreferrer">Условия и сотрудничество ↗</a>
@@ -401,7 +463,7 @@
       </section>
     </main>
 
-    <footer class="footer"><div class="container footer-inner"><span><b>НЯН-MEL</b> &nbsp;·&nbsp; создано с <span class="footer-heart">♥</span> для сообщества</span><span><a href="#top">Наверх ↑</a> &nbsp; · &nbsp; Спасибо, что ты здесь ✨</span></div></footer>
+    <footer class="footer"><div class="container footer-inner"><span><b>НЯН-MEL</b> &nbsp;·&nbsp; создано с <span class="footer-heart">♥</span> для сообщества</span><span><a href="https://www.twitch.tv/nnyanmel/about" target="_blank" rel="noopener noreferrer">Twitch</a> &nbsp; · &nbsp; <a href="rules.html">Правила игр</a> &nbsp; · &nbsp; <a href="#top">Наверх ↑</a></span></div></footer>
   </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script>
