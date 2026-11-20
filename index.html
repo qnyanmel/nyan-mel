@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#100b18">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="Нян-Mel — Twitch-стримы, правила совместных игр со зрителями, поддержка, Telegram-проекты и полезные ссылки.">
+  <meta name="description" content="Нян-Mel — Twitch-стримы, Steam, FACEIT, Discord, правила совместных игр, поддержка и полезные ссылки.">
   <title>Нян-Mel ✦ Twitch, стримы, правила игр и ссылки</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231a0e2a'/%3E%3Cpath d='M15 45V18l34 28V19' fill='none' stroke='%23ff72bc' stroke-width='8' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
   <style>
@@ -278,6 +278,62 @@
       .nav { gap: 6px; }
       .stream-card { padding: 23px; min-height: 280px; }
     }
+
+    /* Steam, FACEIT и Discord: ссылки и карточки сообщества */
+    .hero-socials { gap: 9px; margin-top: 29px; }
+    .hero-socials a {
+      display: inline-flex; align-items: center; gap: 8px; min-height: 39px;
+      padding: 8px 12px; border-radius: 11px; color: #f5e7f8;
+      background: #ffffff0c; border: 1px solid #ffffff23;
+      font-size: 12px; font-weight: 800;
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+    .hero-socials a:hover { background: #ffffff1b; border-color: #f8b4e080; transform: translateY(-2px); }
+    .hero-socials a b { font-size: 15px; }
+    .hero-socials a span { color: #e8aed9; }
+    .profiles-section { padding-top: 78px; }
+    .profiles-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .profile-card {
+      position: relative; isolation: isolate; overflow: hidden;
+      display: flex; flex-direction: column; min-width: 0; min-height: 273px;
+      padding: 27px; border: 1px solid #ffffff28; border-radius: var(--radius);
+      box-shadow: inset 0 1px #ffffff10, 0 17px 38px #00000020;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+    .profile-card:hover { transform: translateY(-3px); border-color: #ffffff5b; box-shadow: 0 20px 45px #00000035; }
+    .profile-card::before {
+      content: ''; position: absolute; z-index: -1; pointer-events: none;
+      width: 220px; height: 220px; top: -93px; right: -89px;
+      border-radius: 50%; opacity: .75;
+    }
+    .profile-card.steam { background: linear-gradient(140deg, #213349, #171b2d 74%); }
+    .profile-card.steam::before { background: radial-gradient(circle, #54a5dd70, transparent 70%); }
+    .profile-card.faceit { background: linear-gradient(140deg, #392334, #241728 74%); }
+    .profile-card.faceit::before { background: radial-gradient(circle, #ff965574, transparent 70%); }
+    .profile-card.discord { background: linear-gradient(140deg, #2c2951, #211a3b 74%); }
+    .profile-card.discord::before { background: radial-gradient(circle, #9d8aff8f, transparent 70%); }
+    .profile-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .profile-icon {
+      display: grid; place-items: center; width: 52px; height: 52px; flex-shrink: 0;
+      border: 1px solid #ffffff2b; border-radius: 17px;
+      background: #ffffff12; font-size: 25px;
+    }
+    .profile-label { color: #d7c6e4; font-size: 10px; font-weight: 850; letter-spacing: .11em; text-align: right; text-transform: uppercase; }
+    .profile-card h3 { margin: 20px 0 7px; font-size: 26px; line-height: 1.15; letter-spacing: -.038em; }
+    .profile-card p { margin: 0 0 20px; max-width: 315px; color: #d0c2d9; font-size: 13px; line-height: 1.7; }
+    .profile-card .card-link { margin-top: auto; }
+    @media (max-width: 950px) { .profile-card { padding: 23px; } }
+    @media (max-width: 760px) {
+      .profiles-section { padding-top: 64px; }
+      .profiles-grid { grid-template-columns: 1fr; }
+      .profile-card { min-height: 230px; padding: 25px; }
+      .hero-socials { margin-top: 26px; }
+    }
+    @media (max-width: 430px) {
+      .hero-socials { gap: 7px; }
+      .hero-socials a { padding: 8px 9px; font-size: 11px; }
+      .profile-card { min-height: 218px; padding: 23px; }
+    }
   </style>
 </head>
 <body>
@@ -292,6 +348,7 @@
           <div class="nav-links">
             <a class="nav-twitch" href="https://www.twitch.tv/nnyanmel/about" target="_blank" rel="noopener noreferrer">💜 Twitch</a>
             <a class="nav-rules" href="rules.html">Правила игр</a>
+            <a href="#profiles">Профили</a>
             <a href="#channels">Каналы</a>
             <a href="#ads">Сотрудничество</a>
             <a class="nav-special" href="https://pay.cloudtips.ru/p/caa781c8" target="_blank" rel="noopener noreferrer">💖 Донат</a>
@@ -312,8 +369,10 @@
             <a href="#channels" class="btn btn-ghost">Telegram-проекты <span aria-hidden="true">↘</span></a>
             <a href="rules.html" class="btn btn-ghost">📜 Правила игр <span aria-hidden="true">↗</span></a>
           </div>
-          <div class="hero-notes" aria-label="Разделы сайта">
-            <span><b>✦</b> Twitch</span><span><b>✧</b> Игры со зрителями</span><span><b>♡</b> Донаты и Telegram</span>
+          <div class="hero-notes hero-socials" aria-label="Игровые профили и сообщество">
+            <a href="https://steamcommunity.com/id/nyanmel/" target="_blank" rel="noopener noreferrer" aria-label="Мой профиль Steam (откроется в новой вкладке)"><b aria-hidden="true">🎮</b> Steam <span aria-hidden="true">↗</span></a>
+            <a href="https://www.faceit.com/ru/players/-EMPRESS-" target="_blank" rel="noopener noreferrer" aria-label="Мой профиль FACEIT (откроется в новой вкладке)"><b aria-hidden="true">🎯</b> FACEIT <span aria-hidden="true">↗</span></a>
+            <a href="https://discord.gg/7SJucyk8db" target="_blank" rel="noopener noreferrer" aria-label="Мой Discord-сервер (откроется в новой вкладке)"><b aria-hidden="true">💜</b> Discord <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
@@ -369,9 +428,36 @@
         </div>
       </section>
 
+      <section id="profiles" class="container section profiles-section" aria-labelledby="profiles-heading">
+        <div class="section-heading">
+          <div><div class="kicker"><span class="section-number">02</span> / игровые профили и сообщество</div><h2 id="profiles-heading">Найдёмся <span class="gradient-text">в игре 🎮</span></h2></div>
+          <p>Мои игровые профили и Discord для общения. Выбирай, куда заглянуть, — все ссылки в одном месте.</p>
+        </div>
+        <div class="profiles-grid">
+          <article class="profile-card steam">
+            <div class="profile-top"><span class="profile-icon" aria-hidden="true">🎮</span><span class="profile-label">Игровой профиль</span></div>
+            <h3>Steam</h3>
+            <p>Игры, достижения и мой профиль в Steam.</p>
+            <a class="card-link" href="https://steamcommunity.com/id/nyanmel/" target="_blank" rel="noopener noreferrer" aria-label="Перейти в мой Steam (откроется в новой вкладке)">Перейти в Steam <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="profile-card faceit">
+            <div class="profile-top"><span class="profile-icon" aria-hidden="true">🎯</span><span class="profile-label">-EMPRESS-</span></div>
+            <h3>FACEIT</h3>
+            <p>Мой профиль FACEIT для соревновательных матчей.</p>
+            <a class="card-link" href="https://www.faceit.com/ru/players/-EMPRESS-" target="_blank" rel="noopener noreferrer" aria-label="Перейти в мой FACEIT (откроется в новой вкладке)">Перейти в FACEIT <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="profile-card discord">
+            <div class="profile-top"><span class="profile-icon" aria-hidden="true">💜</span><span class="profile-label">Наше сообщество</span></div>
+            <h3>Discord</h3>
+            <p>Присоединяйся к серверу: общение, новые знакомства и компания для игр.</p>
+            <a class="card-link" href="https://discord.gg/7SJucyk8db" target="_blank" rel="noopener noreferrer" aria-label="Присоединиться к Discord-серверу (откроется в новой вкладке)">Зайти в Discord <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </section>
+
       <section id="support" class="container section support-section" aria-labelledby="support-heading">
         <div class="section-heading">
-          <div><div class="kicker"><span class="section-number">02</span> / поддержка стрима</div><h2 id="support-heading">Поддержать <span class="gradient-text">меня 💖</span></h2></div>
+          <div><div class="kicker"><span class="section-number">03</span> / поддержка стрима</div><h2 id="support-heading">Поддержать <span class="gradient-text">меня 💖</span></h2></div>
           <p>Если тебе нравится мой контент, любой донат поможет делать ещё больше. Спасибо за поддержку и тепло!</p>
         </div>
         <div class="donation-highlight">
@@ -423,7 +509,7 @@
       </section>
 
       <section id="channels" class="container section channels-section" aria-labelledby="channels-heading">
-        <div class="section-heading"><div><div class="kicker"><span class="section-number">03</span> / telegram</div><h2 id="channels-heading">Каналы <span class="gradient-text">Nitokin ✨</span></h2></div></div>
+        <div class="section-heading"><div><div class="kicker"><span class="section-number">04</span> / telegram</div><h2 id="channels-heading">Каналы <span class="gradient-text">Nitokin ✨</span></h2></div></div>
         <div class="channels-grid">
           <article class="channel-card game">
             <div class="channel-head"><span class="channel-icon" aria-hidden="true"><span class="avatar-fallback">🎮</span><img src="https://t.me/i/userpic/320/nitoKi.jpg" loading="lazy" alt="" onerror="this.style.display='none'"></span><span class="channel-count">NITOKIN · 01</span></div>
@@ -454,7 +540,7 @@
 
       <section id="ads" class="container section ads-section" aria-labelledby="ads-heading">
         <div class="ads-card">
-          <div class="ads-copy"><div class="kicker"><span class="section-number">04</span> / реклама и сотрудничество</div><h2 id="ads-heading">Давай сделаем <span class="gradient-text">что-то классное!</span></h2><p>Хочешь разместить рекламу в канале или обсудить сотрудничество? Выбирай удобный способ связи.</p></div>
+          <div class="ads-copy"><div class="kicker"><span class="section-number">05</span> / реклама и сотрудничество</div><h2 id="ads-heading">Давай сделаем <span class="gradient-text">что-то классное!</span></h2><p>Хочешь разместить рекламу в канале или обсудить сотрудничество? Выбирай удобный способ связи.</p></div>
           <div class="ads-actions">
             <a class="btn btn-primary" href="https://telega.in/c/nitoKi" target="_blank" rel="noopener noreferrer">Заказать рекламу ↗</a>
             <a class="btn btn-ghost" href="https://telegra.ph/Reklama-i-sotrudnichestvo-11-04" target="_blank" rel="noopener noreferrer">Условия и сотрудничество ↗</a>
