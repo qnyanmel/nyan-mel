@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100b18">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Правила совместных игр и голосового участия на стримах Нян-Mel в Twitch и TikTok. Запрет дискриминации, ненависти и травли, меры за нарушения.">
+  <title>Правила совместных игр ✦ Нян-Mel</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231a0e2a'/%3E%3Cpath d='M15 45V18l34 28V19' fill='none' stroke='%23ff72bc' stroke-width='8' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root { --bg: #090811; --surface: #191222; --line: #ffffff24; --text: #fbf5ff; --muted: #b9aac5; --pink: #ff81c2; --purple: #aa83ff; --container: 1080px; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 30px; }
+    body { margin: 0; min-width: 320px; color: var(--text); font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; background: #090811; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+    a:focus-visible { outline: 3px solid #ffb1da; outline-offset: 5px; }
+    ::selection { background: #ff80c4; color: #190c20; }
+    .page { position: relative; isolation: isolate; overflow: hidden; min-height: 100vh; }
+    .page::before { content: ''; position: absolute; z-index: -1; inset: 0; background: radial-gradient(ellipse 53% 17% at 83% 0%, #9a57ef44, transparent 75%), radial-gradient(ellipse 42% 19% at 4% 30%, #fd69b018, transparent 85%), radial-gradient(ellipse 50% 22% at 90% 95%, #a154ef17, transparent 75%), #090811; pointer-events: none; }
+    .container { width: min(var(--container), calc(100% - 48px)); margin-inline: auto; }
+    .header { padding: 22px 0 18px; }
+    .nav { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 10px 13px; min-height: 67px; border-radius: 20px; border: 1px solid #ffffff1e; background: #191125cc; backdrop-filter: blur(16px); }
+    .brand { display: inline-flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand-mark { display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; padding-right: 4px; border-radius: 14px; font-size: 27px; font-weight: 950; font-style: italic; letter-spacing: -.12em; background: linear-gradient(145deg,#ff80c1,#a863e8); }
+    .brand-type { line-height: 1.15; }
+    .brand-type strong { display: block; font-size: 15px; letter-spacing: .17em; font-weight: 900; }
+    .brand-type small { display: block; color: var(--muted); font-size: 10px; margin-top: 5px; letter-spacing: .17em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 9px; align-items: center; }
+    .nav-links a { padding: 10px 14px; border-radius: 12px; font-size: 13px; font-weight: 750; color: #e2d1ed; }
+    .nav-links a:hover { background: #ffffff14; }
+    .nav-links .nav-twitch { color: #fff; background: #8950dd48; border: 1px solid #bd91ff59; }
+    .hero { padding: 72px 0 55px; }
+    .kicker { color: #f1b4d6; text-transform: uppercase; font-size: 11px; letter-spacing: .20em; font-weight: 850; }
+    .hero h1 { max-width: 850px; margin: 19px 0 22px; font-size: clamp(43px,6vw,76px); letter-spacing: -.062em; line-height: 1.06; font-weight: 900; text-wrap: balance; }
+    .gradient { color: transparent; background: linear-gradient(110deg,#ff94c9,#bb85ff); -webkit-background-clip: text; background-clip: text; }
+    .lead { max-width: 730px; color: #d0bfdc; line-height: 1.85; margin: 0 0 27px; font-size: 16px; }
+    .hero-actions, .jump-links, .policy-links { display: flex; flex-wrap: wrap; gap: 11px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 19px; min-height: 50px; border-radius: 14px; border: 1px solid transparent; font-weight: 800; font-size: 13px; transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-twitch { background: linear-gradient(112deg, #a970ff,#7b45cb); color: white; box-shadow: 0 8px 28px #a06aff2f; }
+    .btn-ghost { background: #ffffff0f; color: #fff2fa; border-color: #ffffff28; }
+    .btn-ghost:hover { background: #ffffff1d; }
+    .quick-note { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .quick-note article { padding: 24px; border-radius: 22px; border: 1px solid #ffffff27; background: linear-gradient(145deg,#291b37,#191423); }
+    .quick-note article:first-child { border-color: #ff96c954; background: linear-gradient(130deg,#392035,#23182e); }
+    .quick-note h2 { font-size: 22px; letter-spacing: -.036em; margin: 6px 0 9px; }
+    .quick-note p { color: #d0bbd6; font-size: 13px; margin: 0; line-height: 1.75; }
+    .small-label { color: #ffafd9; font-size: 11px; font-weight: 850; text-transform: uppercase; letter-spacing: .13em; }
+    .section { padding: 33px 0 28px; }
+    .section-heading { margin-bottom: 23px; }
+    .section-heading h2 { margin: 10px 0 0; font-size: clamp(32px,4.2vw,45px); line-height: 1.15; letter-spacing: -.05em; }
+    .section-heading p { margin: 12px 0 0; max-width: 750px; color: var(--muted); line-height: 1.75; font-size: 14px; }
+    .jump-links { margin-top: 30px; }
+    .jump-links a { display: inline-flex; padding: 10px 13px; font-size: 12px; font-weight: 750; border-radius: 11px; border: 1px solid #ffffff24; background: #ffffff0b; color: #ecd9f6; }
+    .jump-links a:hover { background: #ffffff1c; }
+    .rules-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 17px; }
+    .rule-card { min-width: 0; padding: 26px; border: 1px solid #ffffff21; border-radius: 23px; background: linear-gradient(148deg,#21182e,#181221); }
+    .rule-number { display: inline-grid; place-items: center; min-width: 38px; height: 36px; padding: 0 6px; border-radius: 11px; color: #ffc6e6; font-size: 12px; font-weight: 900; letter-spacing: .09em; background: #ff80be22; border: 1px solid #ff92c235; }
+    .rule-card h3 { margin: 17px 0 9px; font-size: 21px; letter-spacing: -.035em; line-height: 1.25; }
+    .rule-card p { margin: 0; color: #c7b7d3; font-size: 13px; line-height: 1.8; }
+    .rule-card strong { color: #ffe9f7; }
+    .voice-block { border: 1px solid #a780f54e; background: linear-gradient(125deg,#271d3c,#1a1427); padding: 27px 30px; border-radius: 23px; }
+    .voice-block p { margin: 0; font-size: 14px; color: #d5c6e0; line-height: 1.85; }
+    .voice-block p + p { margin-top: 10px; }
+    .consequences { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+    .consequence { min-width: 0; padding: 25px; border: 1px solid #ffffff25; border-radius: 23px; background: linear-gradient(150deg,#342036,#1d1527); }
+    .consequence h3 { font-size: 19px; letter-spacing: -.03em; margin: 13px 0 10px; line-height: 1.28; }
+    .consequence p { margin: 0; color: #ddc7dc; font-size: 13px; line-height: 1.8; }
+    .consequence .step { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; background: #ff9acd2c; color: #ffb9d9; font-size: 15px; font-weight: 900; }
+    .consequence:last-child { background: linear-gradient(150deg,#281f3c,#1b1427); }
+    .clarification { margin: 19px 0 0; border-left: 3px solid #c292ff; padding: 7px 0 7px 15px; color: #bdafc9; font-size: 13px; line-height: 1.75; }
+    .policies { border: 1px solid #ffffff22; border-radius: 24px; background: #ffffff0b; padding: 29px; }
+    .policies h3 { margin: 0 0 10px; font-size: 22px; letter-spacing: -.035em; }
+    .policies p { color: #cbbbd7; font-size: 13px; line-height: 1.83; margin: 0 0 19px; }
+    .policy-links a { color: #f4e1ff; border: 1px solid #ffffff30; background: #ffffff13; padding: 12px 14px; border-radius: 12px; font-size: 13px; font-weight: 780; }
+    .policy-links a:hover { background: #ffffff25; }
+    .closing { text-align: center; padding: 47px 0 74px; }
+    .closing p { color: var(--muted); font-size: 14px; }
+    .closing h2 { font-size: clamp(28px,4vw,40px); line-height: 1.2; letter-spacing: -.048em; margin: 12px 0; }
+    .closing .hero-actions { justify-content: center; margin-top: 24px; }
+    .footer { border-top: 1px solid #ffffff18; padding: 28px 0 32px; font-size: 12px; color: #ac9cbd; }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; }
+    .footer b { color: #ffb8dc; letter-spacing: .18em; }
+    .footer a { text-decoration: underline; text-decoration-color: #ffffff50; text-underline-offset: 3px; }
+    @media (max-width: 760px) {
+      .container { width: calc(100% - 36px); }
+      .header { padding-top: 13px; }
+      .nav { padding: 8px 10px; min-height: 60px; }
+      .brand-mark { width: 40px; height: 40px; border-radius: 12px; }
+      .nav-links { gap: 4px; }
+      .nav-links a { padding: 9px 9px; font-size: 12px; }
+      .nav-links .nav-extra { display: none; }
+      .hero { padding: 45px 0 35px; }
+      .quick-note, .rules-grid { grid-template-columns: 1fr; }
+      .consequences { grid-template-columns: 1fr; }
+      .consequence { padding: 22px; }
+    }
+    @media (max-width: 430px) {
+      .container { width: calc(100% - 30px); }
+      .brand-type small { display: none; }
+      .brand-type strong { font-size: 13px; }
+      .nav-links a { padding: 8px 7px; font-size: 11px; }
+      .hero h1 { font-size: clamp(40px,11vw,51px); }
+      .hero-actions .btn { flex: 1 1 auto; }
+      .quick-note article, .rule-card, .voice-block, .policies { padding: 22px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="page" id="top">
+    <header class="header">
+      <div class="container">
+        <nav class="nav" aria-label="Навигация по сайту">
+          <a class="brand" href="index.html" aria-label="Нян-Mel — на главную">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <span class="brand-type"><strong>Нян-Mel</strong><small>tiktok & stream links</small></span>
+          </a>
+          <div class="nav-links">
+            <a href="index.html">← Главная</a>
+            <a class="nav-extra" href="#consequences">Последствия</a>
+            <a class="nav-twitch" href="https://www.twitch.tv/nnyanmel/about" target="_blank" rel="noopener noreferrer">💜 Twitch</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="container hero" aria-labelledby="rules-title">
+        <div class="kicker">✦ Нян-Mel / правила сообщества</div>
+        <h1 id="rules-title">Правила <span class="gradient">совместных игр</span> 🎮</h1>
+        <p class="lead">Эти правила действуют для участников совместных игр и голосового общения во время моих прямых эфиров на Twitch и TikTok. Если ты хочешь играть со мной в эфире — пожалуйста, прочитай их <strong>до подключения</strong>.</p>
+        <div class="hero-actions">
+          <a class="btn btn-twitch" href="https://www.twitch.tv/nnyanmel/about" target="_blank" rel="noopener noreferrer">💜 Мой Twitch ↗</a>
+          <a class="btn btn-ghost" href="index.html">← На главную</a>
+        </div>
+        <nav class="jump-links" aria-label="Содержание правил">
+          <a href="#prohibited">Что запрещено</a>
+          <a href="#voice">Микрофон и игра</a>
+          <a href="#consequences">Последствия</a>
+          <a href="#platforms">Правила платформ</a>
+        </nav>
+        <div class="quick-note">
+          <article><div class="small-label">⛔ Категорически запрещено</div><h2>Ненависть и дискриминация</h2><p>Никаких расистских, ксенофобных, сексистских, гомофобных и других дискриминационных высказываний — даже «в шутку».</p></article>
+          <article><div class="small-label">⚡ Нулевая терпимость</div><h2>Нарушение = исключение из игры</h2><p>Участника сразу отключают от совместной игры и голоса. Он попадает в игровой чёрный список и больше не допускается к играм с микрофоном.</p></article>
+        </div>
+      </section>
+
+      <section id="prohibited" class="container section" aria-labelledby="prohibited-title">
+        <div class="section-heading"><div class="kicker">01 / обязательные правила</div><h2 id="prohibited-title">Что <span class="gradient">запрещено</span></h2><p>Запреты распространяются на речь, сообщения, никнеймы, аватары, изображения, игровые действия и любой другой контент, который может попасть в трансляцию.</p></div>
+        <div class="rules-grid">
+          <article class="rule-card"><span class="rule-number">01</span><h3>Дискриминация и язык ненависти</h3><p><strong>Строго запрещены</strong> оскорбления и унижения по признаку национальности, расы, происхождения, религии, пола, гендера, сексуальной ориентации, возраста, инвалидности и другим защищаемым признакам. Никаких лозунгов ненависти, разжигания вражды и оправдания насилия.</p></article>
+          <article class="rule-card"><span class="rule-number">02</span><h3>Травля, угрозы и домогательства</h3><p>Нельзя запугивать, преследовать, унижать, оскорблять участников, провоцировать травлю, угрожать расправой, призывать к причинению вреда себе или другим, допускать сексуальные домогательства.</p></article>
+          <article class="rule-card"><span class="rule-number">03</span><h3>Личные данные и безопасность</h3><p>Запрещено раскрывать чужие адреса, телефоны, переписки и иную личную информацию без разрешения, угрожать деанонимизацией, выдавать себя за других людей или призывать к опасным и противоправным действиям.</p></article>
+          <article class="rule-card"><span class="rule-number">04</span><h3>Запрещённый контент</h3><p>Нельзя транслировать или озвучивать порнографию, сексуализированный контент с несовершеннолетними, жестокие материалы, пропаганду экстремизма, опасных действий и иной контент, нарушающий правила <strong>Twitch</strong> или <strong>TikTok</strong>. Запрещено включать чужую музыку и видео без необходимых прав.</p></article>
+          <article class="rule-card"><span class="rule-number">05</span><h3>Срыв стрима и нечестная игра</h3><p>Нельзя намеренно мешать эфиру, спамить, рекламировать что-либо без разрешения, обманывать зрителей, использовать читы, заниматься гриферством или стримснайпингом для срыва игры и получения преимущества.</p></article>
+          <article class="rule-card"><span class="rule-number">06</span><h3>Обход правил и провокации</h3><p>Нельзя маскировать оскорбления, использовать запрещённые звуки и мемы, провоцировать других на нарушения или оправдываться тем, что это была «шутка». Требования стримера и модераторов по безопасности обязательны.</p></article>
+        </div>
+      </section>
+
+      <section id="voice" class="container section" aria-labelledby="voice-title">
+        <div class="section-heading"><div class="kicker">02 / голосовое участие</div><h2 id="voice-title">Микрофон и <span class="gradient">совместная игра</span></h2></div>
+        <div class="voice-block">
+          <p>🎙️ Подключаясь к игре или голосовой связи, ты понимаешь, что <strong>твой голос, никнейм и игровой процесс могут попасть в прямой эфир</strong>. Следи за тем, что говоришь и показываешь в игре.</p>
+          <p>Не кричи в микрофон, не включай музыку, чужие записи или резкие звуковые эффекты, не перебивай других намеренно. Если ведущий или модератор просит отключить звук, сменить ник или прекратить действие — сделай это сразу. При необходимости микрофон может быть отключён.</p>
+        </div>
+      </section>
+
+      <section id="consequences" class="container section" aria-labelledby="consequences-title">
+        <div class="section-heading"><div class="kicker">03 / без предупреждения</div><h2 id="consequences-title">Что будет за <span class="gradient">нарушение</span></h2><p>Для серьёзных нарушений — особенно ненависти, дискриминации, угроз и запрещённого контента — действует правило немедленного исключения.</p></div>
+        <div class="consequences">
+          <article class="consequence"><span class="step">1</span><h3>Немедленное удаление</h3><p>Стример или модератор сразу исключает нарушителя из совместной игры, голосового канала или гостевого эфира — <strong>без предварительного предупреждения</strong>.</p></article>
+          <article class="consequence"><span class="step">2</span><h3>Игровой чёрный список</h3><p>Нарушитель добавляется в игровой ЧС и лишается возможности снова играть со мной на стриме или участвовать с микрофоном. Решение о пересмотре остаётся за стримером.</p></article>
+          <article class="consequence"><span class="step">3</span><h3>Только просмотр и чат</h3><p>Смотреть эфир и писать в чат можно <strong>только при соблюдении правил чата</strong>, если аккаунт не заблокирован стримером, модераторами или платформой. Возврата к игре и голосу это не даёт.</p></article>
+        </div>
+        <p class="clarification">Правило действует сразу после нарушения. Удаление выполняет стример или модератор; эта страница сама по себе не подключена к игре и не выполняет автоматических блокировок.</p>
+      </section>
+
+      <section id="platforms" class="container section" aria-labelledby="platforms-title">
+        <div class="section-heading"><div class="kicker">04 / требования площадок</div><h2 id="platforms-title">Правила <span class="gradient">Twitch и TikTok</span></h2></div>
+        <div class="policies">
+          <h3>Правила платформ обязательны для всех</h3>
+          <p>Помимо перечисленного выше, во время эфира <strong>запрещено всё, что нарушает действующие правила сообщества Twitch и TikTok</strong>. Это касается как сообщений, так и речи, аудио, изображений и поведения участников. Полный перечень и актуальные формулировки находятся на официальных страницах платформ; в случае изменения правил площадок действуют их актуальные редакции.</p>
+          <div class="policy-links"><a href="https://safety.twitch.tv/s/article/Community-Guidelines?language=en_US" target="_blank" rel="noopener noreferrer">Правила Twitch ↗</a><a href="https://www.tiktok.com/community-guidelines/en/" target="_blank" rel="noopener noreferrer">Правила TikTok ↗</a></div>
+        </div>
+      </section>
+
+      <section class="container closing" aria-label="Завершение">
+        <div class="kicker">💗 Спасибо за уважение друг к другу</div>
+        <h2>Играем дружно, без ненависти и токсичности ✨</h2>
+        <p>Хочешь играть со мной — соблюдай эти правила и помогай сохранять комфортную атмосферу.</p>
+        <div class="hero-actions"><a class="btn btn-twitch" href="https://www.twitch.tv/nnyanmel/about" target="_blank" rel="noopener noreferrer">💜 Перейти на Twitch ↗</a><a class="btn btn-ghost" href="index.html">← Вернуться на сайт</a></div>
+      </section>
+    </main>
+    <footer class="footer"><div class="container footer-inner"><span><b>НЯН-MEL</b> · правила совместных игр</span><span><a href="index.html">Главная</a> · <a href="#top">Наверх ↑</a></span></div></footer>
+  </div>
+</body>
+</html>
